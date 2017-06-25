@@ -1,0 +1,17 @@
+<div class="container" ng-controller="PhotoController">
+  <div class="row">
+    <p style="padding: 20px;"></p>
+     <div class="col-xs-12" ng-if="!showPhotos">
+         <h3>{{message}}</h3>
+      </div> 
+    <div class="col-xs-12" ng-if="showPhotos">
+      <h3 class="name"> {{photo.name}} </h3>
+      <img class="photo img-responsive" ng-src={{photo.image}} alt="photos">
+      <div id="button">
+        <input type="button" id="previous" name="previous" value="Previous" ng-click="previous()">
+        <input type="button" id="next" name="next" value="Next" ng-click="next()">
+      </div>
+    </div>
+  </div>
+</div>
+<p style="padding: 10px;"></p>

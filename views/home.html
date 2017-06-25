@@ -1,0 +1,130 @@
+<div class="container" ng-controller="IndexController">
+  <div class="row">
+    <h1 style="text-align:center;" class="col-xs-12 col-sm-12">
+          <b><i>Joanne Hsu's Webpage</i></b>
+          </h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <div class="row">
+        <div id="slide" class="col-xs-12">
+          <p style="padding:20px;"></p>
+          <div id="mycarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#mycarousel" data-slide-to="1"></li>
+              <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img src="http://i.imgur.com/DYjXabA.jpg" alt="Seattle">
+                <h3 class="caption"> Seattle, WA </h3>
+              </div>
+              <div class="item">
+                <img src="http://i.imgur.com/cXoQOVv.jpg" alt="Grand Teton">
+                <h3 class="caption"> Grand Teton, WY </h3>
+              </div>
+              <div class="item">
+                <img src="http://i.imgur.com/fTmx2Vz.jpg" alt="San Francisco">
+                <h3 class="caption"> San Francisco, CA </h3>
+              </div>
+            </div>
+            <!-- Indicators -->
+            <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <p style="padding:20px;"></p>
+        <div class="col-xs-offset-1 col-xs-3 col-sm-offset-2 col-sm-3">
+          <div ng-init="img1='http://i.imgur.com/vnAhBFo.jpg'">
+            <a href="http://www.ucdavis.edu" target="_blank"> <img class="logo img-responsive" ng-src="{{img1}}" alt="UC Davis" /></a>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-3">
+          <div ng-init="img2='http://i.imgur.com/FdUeUJ0.jpg'">
+            <a href="http://www.fredhutch.org" target="_blank"> <img class="logo img-responsive" ng-src="{{img2}}" alt="Fred Hutch" /></a>
+          </div>
+        </div>
+        <div class="col-xs-3 col-sm-3">
+          <div ng-init="img3='http://i.imgur.com/l05osoX.png'">
+            <a href="http://www.berkeley.edu" target="_blank"> <img class="logo img-responsive" ng-src="{{img3}}" alt="UC Berkeley" /></a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-1">
+          &nbsp;
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+          <p style="padding:20px;"></p>
+          <h3>Interests</h3>
+          <div class="panel-group" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-success">
+              <div class="panel-heading" role="tab">
+                <h3 class="panel-title">
+                    <a  class="accordion"  ng-click="toggle(1)"
+                     aria-controls="favoritefoods"
+                     role="tab">Favorite Foods</a>
+                    </h3>
+              </div>
+              <div class="tab-content tab-pane" aria-labelledby="1">
+                <div class="panel-body" ng-show="toggleVar1">
+                  <p> <a ui-sref="app.foods">Menu</a> </p>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-success">
+              <div class="panel-heading" role="tab">
+                <h3 class="panel-title">
+                      <a class="accordion" ng-click="toggle(2)"
+                     aria-controls="travel"
+                     role="tab">Travel</a> 
+                    </h3>
+              </div>
+              <div class="tab-content tab-pane" aria-labelledby="2">
+                <div class="panel-body" ng-show="toggleVar2">
+                  <p> <a ui-sref="app.photos">Attractions</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          &nbsp;
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+          <h3>Comments:</h3>
+          <div ng-repeat="comment in usercomments">
+            <blockquote>
+              <p><b>{{comment.name}}:</b> {{comment.comment}} &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="&times;" ng-click="remove($index)"> <small>{{comment.date| date}} </small> </p>
+            </blockquote>
+          </div>
+          <form class="form-group">
+            <input class="form-control" type="text" ng-model="input.name" id="name" name="name" placeholder="Enter Your Name">
+            <textarea class="form-control" rows="4" cols="70" ng-model="input.comment" id="comment" name="comment" placeholder="Enter Your Comment"></textarea>
+            <button type="submit" ng-click="submitComment()">Submit</button>
+            <span ng-show="enter_comment">Please enter your name or comment</span>
+          </form>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          &nbsp;
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-1">
+      &nbsp;
+    </div>
+  </div>
+</div>
+<p style="padding: 20px;"></p>
